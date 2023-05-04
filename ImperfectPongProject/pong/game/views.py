@@ -5,4 +5,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def instructions(request):
-    return render(request,'instructions.html')
+    return render(request,'BasicPong.html')
