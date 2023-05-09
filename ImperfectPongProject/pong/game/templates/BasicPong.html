@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <a href={% url 'menu' %} class="btn">Start Game</a>
     <title>Basic Pong HTML Game</title>
     <meta charset="UTF-8" />
     <style>
@@ -14,12 +13,48 @@
       body {
         background: black;
         display: flex;
+        /* align-items: center; */
+        justify-content: center; 
+        position: absolute;
+        /* padding-left: 200px; */
+      }
+      /* div {
+        background: black;
+        display: flex;
         align-items: center;
         justify-content: center;
+      } */
+      nav{  
+        align-items: center;
+        display: table-header-group;
+        justify-content: list-item;
       }
+      
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: black;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: black;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+}
     </style>
   </head>
   <body>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">
+    <span style="color:white" id="RightScoreLabel"> Right Score: 0</span>
+    <span>____________________________________</span>
+    <span style="color:white"id="LeftScoreLabel">Left Score: 0</span></div>
+    <div class="grid-item">3</div>  
+    <div class="grid-item">4</div>  
+    <div class="grid-item">
     <canvas width="750" height="585" id="game"></canvas>
     <script>
       const canvas = document.getElementById("game");
@@ -30,6 +65,8 @@
 
       var paddleSpeed = 6;
       var ballSpeed = 5;
+      var leftScore = 0;
+      var rightScore = 0;
 
       const leftPaddle = {
         // start in the middle of the game on the left side
@@ -129,6 +166,10 @@
 
         // reset ball if it goes past paddle (but only if we haven't already done so)
         if ((ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
+           if (ball.x < 0){ rightScore = rightScore + 1;
+             document.getElementById("RightScoreLabel").innerHTML = "Right Score: " + rightScore;}
+          if (ball.x > canvas.width){leftScore = leftScore + 1;
+              document.getElementById("LeftScoreLabel").innerHTML = "Left Score: " + leftScore;}
           ball.resetting = true;
 
           // give some time for the player to recover before launching the ball again
@@ -136,7 +177,7 @@
             ball.resetting = false;
             ball.x = canvas.width / 2;
             ball.y = canvas.height / 2;
-          }, 400);
+          }, 600);
         }
 
         // check to see if ball collides with paddle. if they do change x velocity
@@ -203,5 +244,11 @@
       // start the game
       requestAnimationFrame(loop);
     </script>
+    </div>
+    <div class="grid-item"></div> 
+    <div class="grid-item"></div> 
+    <div class="grid-item"><a href={% url 'menu' %} class="btn">Main Menu</a></div> 
+    <div class="grid-item"></div> 
+  </div>
   </body>
 </html>
