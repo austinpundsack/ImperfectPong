@@ -43,6 +43,37 @@
         font-size: 30px;
         text-align: center;
 }
+        button{
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 20px 40px;
+        font-size: 24px;
+        margin-top: 50px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+        button:hover {
+        background-color: #dddddd;
+      }
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      a:active {
+        color: black;
+        text-decoration: none;
+      }
+
     </style>
   </head>
   <body>
@@ -247,7 +278,7 @@
     </div>
     <div class="grid-item"></div> 
     <div class="grid-item"></div> 
-    <div class="grid-item"><a href={% url 'menu' %} class="btn">Main Menu</a></div> 
+    <div class="grid-item"><button><a href={% url 'menu' %} class="btn">Main Menu</a></button></div> 
     <div class="grid-item"></div> 
   </div>
   </body>
