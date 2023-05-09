@@ -47,34 +47,18 @@
         color: #fff;
       }
     </style>
-    <a href={% url 'menu' %} class="btn">Start Game</a>
   </head>
   <body>
-    <h1>Pong Game Instructions</h1>
+    <h1>Instructions</h1>
 
-    <p>
-      Welcome to the Pong game! Game's interface consists of two paddles and a
-      ball. The ball deflects off the paddle upon impact. You need to obtain 11
-      points when your opponent misses the ball to win. Additionally, the game
-      can either be played by two people or one against a computer-controlled
-      paddle.
-    </p>
 
-    <ul>
-      <li>Use the up and down arrow keys to move your paddle.</li>
-      <li>The game ends when one player scores 11 points.</li>
-      <li>
-        If the ball hits the top or bottom of the screen, it will bounce back.
-      </li>
-      <li>
-        If the ball hits the left or right side of the screen, the opposite
-        player scores a point.
-      </li>
-      <li>The game will automatically reset when one player scores a point.</li>
-    </ul>
+    <p>Welcome to (Im)Perfect Pong. Pong is a game consisting of two paddles and a ball.
+       The objective of the game is to get the ball into the opponent's goal, while using your paddle to keep it out of your own.
+      Player 1 (on the left) controls their paddle with W and S, while Player 2 (on the right) controls their paddle with the up 
+      and down arrow keys. Once a point is scored, the ball is reset to the middle of the screen after a brief delay. After a few points,
+       the players will be given a choice of cards that will modify the game in some way. Click the buttons below to either return to the main menu or begin the game. Have Fun!</p>
 
-    <p>Are you ready to play? Click the button below to start the game!</p>
-
+      <a href={% url 'menu' %} class="btn">Main Menu</a>
     <a href={% url 'game' %} class="btn">Start Game</a>
   </body>
 </html>
