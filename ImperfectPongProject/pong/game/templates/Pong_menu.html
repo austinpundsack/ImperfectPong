@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Pong Game Main Menu</title>
     <style>
       body {
         background-color: #222222;
-        color: #FFFFFF;
+        color: #ffffff;
         font-family: Arial, sans-serif;
         text-align: center;
       }
@@ -15,7 +14,7 @@
         margin-top: 100px;
       }
       button {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #222222;
         border: none;
         padding: 20px 40px;
@@ -23,17 +22,17 @@
         margin-top: 50px;
         cursor: pointer;
         border-radius: 5px;
-        box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
       }
       button:hover {
-        background-color: #DDDDDD;
+        background-color: #dddddd;
       }
     </style>
   </head>
   <body>
     <h1>(Im)perfect Pong</h1>
-    <button onclick="window.location.href='play.html'">Play</button>
-    <button onclick="window.location.href='instructions.html'">Instructions</button>
-    <button onclick="window.location.href='credits.html'">Credits</button>
+    <button><a href={% url 'game' %} class="btn">Start Game</a></button>
+    <a href={% url 'instructions' %} class="btn">Instructions</button>
+      <button><a href={% url 'menu' %} class="btn">Menu</a></button>
   </body>
 </html>
