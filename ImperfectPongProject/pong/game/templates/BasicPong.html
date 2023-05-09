@@ -1,6 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+
+
     <title>Basic Pong HTML Game</title>
     <meta charset="UTF-8" />
     <style>
@@ -247,8 +250,12 @@
     </div>
     <div class="grid-item"></div> 
     <div class="grid-item"></div> 
-    <div class="grid-item"><a href={% url 'menu' %} class="btn">Main Menu</a></div> 
-    <div class="grid-item"></div> 
+    <div class="grid-item"><a href={% url 'menu' %} class="btn">Main Menu</a></div>
+    <div class="grid-item">      <audio controls autoplay loop id="myaudio"><source src="{% static 'game/songs/168734_Jumper.mp3' %}"</audio>
+      <script>
+        var audio = document.getElementById("myaudio");
+        audio.volume = 0.1;
+      </script></div> 
   </div>
   </body>
 </html>
