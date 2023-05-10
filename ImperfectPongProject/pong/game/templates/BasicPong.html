@@ -84,7 +84,7 @@
       <div class="grid-item"></div>
       <div class="grid-item">
     <span style="color:white" id="RightScoreLabel"> Player 2 Score: 0</span>
-    <span>____________________________________</span>
+    <span>______________________</span>
     <span style="color:white"id="LeftScoreLabel">Player 1 Score: 0</span></div>
     <div class="grid-item"></div>  
     <div class="grid-item"></div>  
@@ -95,8 +95,9 @@
       const context = canvas.getContext("2d");
       const grid = 15;
       const paddleHeight = grid * 5; // 80
-      const maxPaddleY = canvas.height - grid - paddleHeight;
-
+      // const maxPaddleY = canvas.height - grid - paddleHeight;
+      var maxPaddleY = canvas.height - grid - paddleHeight;
+      
       var paddleSpeed = 6;
       var ballSpeed = 4;
       var leftScore = 0;
@@ -157,6 +158,8 @@
         leftPaddle.y += leftPaddle.dy;
         rightPaddle.y += rightPaddle.dy;
 
+        
+
         // prevent paddles from going through walls
         if (leftPaddle.y < grid) {
           leftPaddle.y = grid;
@@ -198,13 +201,33 @@
           ball.dy *= -1;
         }
 
-        // reset ball if it goes past paddle (but only if we haven't already done so)
+        // function if ball goes past paddle
         if ((ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
+
+          //If right player scored
            if (ball.x < 0){ rightScore = rightScore + 1;
-             document.getElementById("RightScoreLabel").innerHTML = "Player 2 Score: " + rightScore;}
-          if (ball.x > canvas.width){leftScore = leftScore + 1;
-              document.getElementById("LeftScoreLabel").innerHTML = "Player 1 Score: " + leftScore;}
-          ball.resetting = true;
+             document.getElementById("RightScoreLabel").innerHTML = "Player 2 Score: " + rightScore; 
+             
+             //Randomize Ball Speed
+             if(true && ball.dy > 0){ballSpeed = 1 + Math.floor(Math.random() * 10); ball.dx = -ballSpeed; ball.dy = ballSpeed;}
+             if(true && ball.dy < 0){ballSpeed = 1 + Math.floor(Math.random() * 10); ball.dx = -ballSpeed; ball.dy = -ballSpeed;}
+            }
+              //If left player scored
+              if (ball.x > canvas.width){leftScore = leftScore + 1;
+              document.getElementById("LeftScoreLabel").innerHTML = "Player 1 Score: " + leftScore; if(true){ballSpeed = 1 + Math.floor(Math.random() * 10); ball.dx = ballSpeed; ball.dy = -ballSpeed;}
+              
+              //Randomize Ball Speed
+              if(true && ball.dy > 0){ballSpeed = 1 + Math.floor(Math.random() * 10); ball.dx = ballSpeed; ball.dy = ballSpeed;}
+              if(true && ball.dy < 0){ballSpeed = 1 + Math.floor(Math.random() * 10); ball.dx = ballSpeed; ball.dy = -ballSpeed;}
+            }
+
+              //Increase Canvas Height
+              if(true){canvas.height = canvas.height + 10; maxPaddleY = canvas.height - grid - paddleHeight;}
+              ball.resetting = true;
+
+              //Increase Canvas Height
+              if(true){canvas.height = canvas.height + 10; maxPaddleY = canvas.height - grid - paddleHeight;}
+              ball.resetting = true;
 
           // give some time for the player to recover before launching the ball again
           setTimeout(() => {
