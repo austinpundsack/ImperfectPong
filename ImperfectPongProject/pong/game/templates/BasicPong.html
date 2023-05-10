@@ -281,12 +281,14 @@
     </div>
     <div class="grid-item"></div> 
     <div class="grid-item"></div> 
-    <div class="grid-item"><a href={% url 'menu' %} class="btn">Main Menu</a></div>
-    <div class="grid-item">      <audio controls autoplay loop id="myaudio"><source src="{% static 'game/songs/168734_Jumper.mp3' %}"</audio>
+    <div class="grid-item"><button><a href={% url 'menu' %}>Main Menu</a></button>
+      <br><br>
+      <audio controls autoplay loop id="myaudio"><source src="{% static 'game/songs/168734_Jumper.mp3' %}"</audio>
       <script>
         var audio = document.getElementById("myaudio");
         audio.volume = 0.1;
-      </script></div> 
+      </script></div>
+    <div class="grid-item"></div> 
   </div>
   </body>
 </html>
