@@ -102,6 +102,8 @@
       var ballSpeed = 4;
       var leftScore = 0;
       var rightScore = 0;
+      let beat = new Audio('../static/game/songs/goal.mp3');
+
 
       const leftPaddle = {
         // start in the middle of the game on the left side
@@ -203,6 +205,9 @@
 
         // function if ball goes past paddle
         if ((ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
+
+          beat.load();
+          beat.play();
 
           //If right player scored
            if (ball.x < 0){ rightScore = rightScore + 1;
@@ -306,7 +311,7 @@
     <div class="grid-item"></div> 
     <div class="grid-item"><button><a href={% url 'menu' %}>Main Menu</a></button>
       <br><br>
-      <audio controls autoplay loop id="myaudio"><source src="{% static 'game/songs/168734_Jumper.mp3' %}"</audio>
+      <audio controls autoplay loop id="myaudio"><source src="{% static 'game/songs/168734_Jumper.mp3' %}"></audio>
       <script>
         var audio = document.getElementById("myaudio");
         audio.volume = 0.1;
